@@ -1,44 +1,46 @@
 package com.jp.classicModels.domain;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Products {
 
 	@Id
-	@Column(name = "productCode")
+	@Column(name = "product_code")
 	private String productCode;
 
-	@Column(name = "productName")
+	@Column(name = "product_name")
 	private String productName;
 
-	@Column(name = "productLine")
-	@OneToOne(mappedBy = "productLine")
+//	@OneToOne(mappedBy = "product_line")
+	@Column(name = "product_line")
 	private String productLine;
 
-	@Column(name = "productScale")
+	@Column(name = "product_scale")
 	private String productScale;
 
-	@Column(name = "productVendor")
+	@Column(name = "product_vendor")
 	private String productVendor;
 
-	@Column(name = "productDescription")
+	@Column(name = "product_description")
 	private String productDescription;
 
-	@Column(name = "quantityInStock")
-	private int quantityInStock;
+	@Column(name = "quantity_in_stock")
+	private Short quantityInStock;
 
-	@Column(name = "buyPrice")
-	private Float buyPrice;
+	@Column(name = "buy_price")
+	private java.math.BigDecimal buyPrice;
 
-	@Column(name = "MSRP")
-	private Float msrp;
+	@Column(name = "msrp")
+	private java.math.BigDecimal msrp;
 
 	public Products(String productCode, String productName, String productLine, String productScale,
-			String productVendor, String productDescription, int quantityInStock, Float buyPrice, Float msrp) {
+			String productVendor, String productDescription, Short quantityInStock, BigDecimal buyPrice,
+			BigDecimal msrp) {
 		super();
 		this.productCode = productCode;
 		this.productName = productName;
@@ -107,23 +109,23 @@ public class Products {
 		return quantityInStock;
 	}
 
-	public void setQuantityInStock(int quantityInStock) {
+	public void setQuantityInStock(Short quantityInStock) {
 		this.quantityInStock = quantityInStock;
 	}
 
-	public Float getBuyPrice() {
+	public BigDecimal getBuyPrice() {
 		return buyPrice;
 	}
 
-	public void setBuyPrice(Float buyPrice) {
+	public void setBuyPrice(BigDecimal buyPrice) {
 		this.buyPrice = buyPrice;
 	}
 
-	public Float getMsrp() {
+	public BigDecimal getMsrp() {
 		return msrp;
 	}
 
-	public void setMsrp(Float msrp) {
+	public void setMsrp(BigDecimal msrp) {
 		this.msrp = msrp;
 	}
 
