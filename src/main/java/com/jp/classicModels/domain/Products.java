@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Products {
@@ -16,9 +18,9 @@ public class Products {
 	@Column(name = "product_name")
 	private String productName;
 
-//	@OneToOne(mappedBy = "product_line")
-	@Column(name = "product_line")
-	private String productLine;
+	@ManyToOne
+	@JoinColumn(name = "product_line")
+	private Productlines productLine;
 
 	@Column(name = "product_scale")
 	private String productScale;
@@ -38,7 +40,7 @@ public class Products {
 	@Column(name = "msrp")
 	private java.math.BigDecimal msrp;
 
-	public Products(String productCode, String productName, String productLine, String productScale,
+	public Products(String productCode, String productName, Productlines productLine, String productScale,
 			String productVendor, String productDescription, Short quantityInStock, BigDecimal buyPrice,
 			BigDecimal msrp) {
 		super();
@@ -73,11 +75,11 @@ public class Products {
 		this.productName = productName;
 	}
 
-	public String getProductLine() {
+	public Productlines getProductLine() {
 		return productLine;
 	}
 
-	public void setProductLine(String productLine) {
+	public void setProductLine(Productlines productLine) {
 		this.productLine = productLine;
 	}
 
