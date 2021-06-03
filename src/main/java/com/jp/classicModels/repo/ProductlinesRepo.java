@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.jp.classicModels.domain.Productlines;
 
 @Repository
-public interface ProductlinesRepo extends JpaRepository<String, Productlines> {
+public interface ProductlinesRepo extends JpaRepository<Productlines, Long> {
 
 }
